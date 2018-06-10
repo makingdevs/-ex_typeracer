@@ -18,7 +18,13 @@
             <div class="card mb-3" style="max-width: 30rem;">
               <div class="card-body">
                 <%= if @maybe_user do %>
-                    Estas login
+                  <div class="text-center">
+                    <img src="http://keyboardheroes.io.s3.amazonaws.com/kbhero.png" width="100px" alt="hero">
+                    <div class="card-body">
+                      <p class="card-text">So, you already started the adventure, just continue with your mission...</p>
+                      <%=button("Just play...", to: "/racer", method: "get", class: "btn btn-info btn-lg")%>
+                    </div>
+                  </div>
                 <% else %>
                 <form action="/new_user" method="post" id="register_form">
                   <h1 class="h3 mb-3 font-weight-normal">Be an autentic hero!</h1>
@@ -60,7 +66,7 @@
                 </form>
                   <button class="btn btn-lg btn-success btn-block" id="submit_button_register">Start the adventure!</button>
                 <% end %>
-              
+
               </div>
             </div>
           </div>
