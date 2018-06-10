@@ -4,11 +4,11 @@ defmodule ExTyperacer.TimerServer do
   require Kernel
   alias ExTyperacer.Logic.{Game, Player}
   alias ExTyperacer.GameServer
-  
+
   def start_link() do
     GenServer.start_link(__MODULE__, %{})
   end
-  
+
   def init(state) do
     IO.puts "Init timer"
     ExTyperacerWeb.Endpoint.subscribe "timer:start", []
@@ -72,14 +72,14 @@ defmodule ExTyperacer.TimerServer do
     IO.inspect response
     GameServer.delete_game_in_ets(name)
     GenServer.stop name
-    broadcast(0, %{message: "playing", uuid: game.uuid, select: "playing_time_" }, Game.get_list_positions(game) ) 
+    broadcast(0, %{message: "playing", uuid: game.uuid, select: "playing_time_" }, Game.get_list_positions(game) )
     {:noreply, %{timer: timer}}
   end
 
   def handle_info({:kill_timer, counter, name, game}, %{timer: timer}) do
     counter = counter - 1
-    if counter < 120 do 
-      broadcast counter, %{message: "playing", uuid: game.uuid, select: "playing_time_"} 
+    if counter < 120 do
+      broadcast counter, %{message: "playing", uuid: game.uuid, select: "playing_time_"}
     end
     IO.inspect "Kill second: #{counter}"
     timer = Process.send_after(self(), {:kill_timer, counter, name, game}, 1_000)

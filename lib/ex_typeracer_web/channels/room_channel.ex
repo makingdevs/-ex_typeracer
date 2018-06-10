@@ -33,7 +33,7 @@ defmodule ExTyperacerWeb.RoomChannel do
   end
 
   def handle_in("join_race", payload, socket) do
-    
+
     IO.inspect "Estoy aqui"
     [game_server, game, players, list_rooms] = join_game(payload)
  #   game = Game.add_player(game, username)
@@ -73,7 +73,7 @@ defmodule ExTyperacerWeb.RoomChannel do
     IO.inspect uuidGame
     [{_,game_server}] = :ets.lookup(:"#{uuidGame}","game")
     game = GameServer.get_game game_server
-  #  broadcast! socket, "updating_player_#{uuidGame}", 
+  #  broadcast! socket, "updating_player_#{uuidGame}",
   #  %{"game" => game,
   #    "winner" => "Ninguno"
   #  }
@@ -87,7 +87,7 @@ defmodule ExTyperacerWeb.RoomChannel do
 
   def handle_in("exist_username", username, socket) do
     existed = PersonRepo.find_user_by_username username
-    if existed do 
+    if existed do
       existed = true
     else
       existed = false
@@ -102,7 +102,7 @@ defmodule ExTyperacerWeb.RoomChannel do
 
   def handle_in("exist_email", email, socket) do
     existed = PersonRepo.find_user_by_email email
-    if existed do 
+    if existed do
       existed = true
     else
       existed = false
@@ -112,7 +112,7 @@ defmodule ExTyperacerWeb.RoomChannel do
 
   def handle_in("recovery_pass", email, socket) do
     existed = PersonRepo.find_user_by_email email
-    if existed do 
+    if existed do
       IO.inspect existed.id
       PersonRepo.send_email_token_recovery existed
       existed = true
@@ -124,7 +124,7 @@ defmodule ExTyperacerWeb.RoomChannel do
 
   def handle_in("playing_again", payload, socket) do
     IO.inspect "Reinicia juego"
-    [game_server, game, players, list_rooms] = 
+    [game_server, game, players, list_rooms] =
     if checking_game(payload["name_room"]) do
       IO.inspect " Te unes al juego "
       join_game(payload)
@@ -148,9 +148,10 @@ defmodule ExTyperacerWeb.RoomChannel do
     game_server = GameServer.start_link(payload["name_room"])
     IO.inspect game_server
     GameServer.add_player game_server, payload["username"]
-    players = GameServer.players game_server 
+    players = GameServer.players game_server
     game = GameServer.get_game game_server
     IO.inspect players
+    # TODO: Use a GenServer
     :ets.new(:"#{payload["name_room"]}", [:named_table, :public])
     :ets.insert(:"#{payload["name_room"]}", {"game", game_server} )
     [{"list", list_rooms}] = :ets.lookup(:list_rooms, "list")
@@ -167,7 +168,7 @@ defmodule ExTyperacerWeb.RoomChannel do
     IO.inspect game_server
     GameServer.add_player game_server, username
     game = GameServer.get_game game_server
-    players = GameServer.players game_server 
+    players = GameServer.players game_server
     [game_server, game, players, list_rooms]
   end
 

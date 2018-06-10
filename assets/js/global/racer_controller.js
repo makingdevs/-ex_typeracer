@@ -9,7 +9,7 @@ import "jquery-validation"
 export var RacerController = {
   uuid: Math.floor((Math.random() * 10000) + 1),
   channelScore: null,
-  channelRoom: null, 
+  channelRoom: null,
   processRoom: null,
   username:null,
   name_room: null,
@@ -71,7 +71,7 @@ export var RacerController = {
   listnenKeyBoeard: function(){
     let that = this
     $("#validUsername").on("keyup", (e) => {
-      let username = $("#validUsername").val() 
+      let username = $("#validUsername").val()
       that.knowExistUsername(username)
       if(e.originalEvent.keyCode == 32){
         username = username.replace(/\s/g, '');
@@ -81,10 +81,10 @@ export var RacerController = {
     $("#validEmail").on("keyup", () => {
       let email = $("#validEmail").val()
       that.knowExistEmail(email)
-    }) 
+    })
   },
   initChannelTimer: function(name_room, uuid_game) {
-    let that = this 
+    let that = this
     console.log(uuid_game);
     var channel = socket.channel("timer:update", {})
       channel.join()
@@ -189,7 +189,7 @@ export var RacerController = {
           console.log($(`#${that.username}-bar`))
         });
       });
-      
+
       this.channelScore.on("socore:winer_show", msg => {
         console.log(msg);
         if(msg.uuid_game == that.uuid_game){
@@ -210,12 +210,12 @@ export var RacerController = {
       console.log(that.uuid)
       this.channelRoom
       .push('init_reace', {username: that.uuid, name_room: that.name_room})
-      .receive('ok', response =>{ 
+      .receive('ok', response =>{
         console.log("ok", response)
         that.processRoom = response.process;
         that.uuid = response.process
         that.username = response.user
-        that.uuid_game = response.uuid 
+        that.uuid_game = response.uuid
         that.updatingPlayers(that.name_room)
         that.initChannelTimer(that.name_room, that.uuid_game)
         HandlebarsResolver.constructor.mergeViewWithModel("#timer_area", response, "timer_run_area")
@@ -227,15 +227,15 @@ export var RacerController = {
   removeCurrentPlayer: function(playersList){
     let currentPlayer
     let that = this
-    playersList.forEach(function(val,index) { 
+    playersList.forEach(function(val,index) {
       if(val.username == that.username){
         currentPlayer = val
      }
    })
    let index = playersList.indexOf(currentPlayer)
-   playersList.splice(index, 1)  
+   playersList.splice(index, 1)
    playersList.unshift(currentPlayer)
-  }, 
+  },
   updatingPlayers: function (name_room) {
     let that = this
     console.log(`Reinicia lista. ${name_room}`)
@@ -260,7 +260,7 @@ export var RacerController = {
     let that = this
       this.channelRoom
       .push('join_race', {username: username, name_room: name_room})
-      .receive('ok', response =>{ 
+      .receive('ok', response =>{
         console.log("ok", response)
         if(response.status === "waiting"){
           if(response.process == this.name_room){
@@ -280,7 +280,7 @@ export var RacerController = {
           console.log("La sala esta en juego o ya no")
           $.notify({
             // options
-            message: 'La sala esta en juego o ya no está disponible' 
+            message: 'La sala esta en juego o ya no está disponible'
           },{
             // settings
             type: 'danger'
@@ -345,7 +345,7 @@ export var RacerController = {
     let that = this
     $("#list_roms").on("click", ".room_ref" ,(e) => {
       console.log($(e.currentTarget).text())
-      that.username = $("#username_join").val() 
+      that.username = $("#username_join").val()
       if(!that.username){
         that.username = `Guess${Math.floor((Math.random() * 100) + 1)}`
       }
@@ -358,7 +358,7 @@ export var RacerController = {
   joinGameFromUrl(){
     let that = this
     that.name_room = $("#url_url").val()
-    that.username = $("#username_join").val() 
+    that.username = $("#username_join").val()
     if (that.name_room){
       console.log("Viene desde url")
       console.log(that.name_room)
@@ -392,7 +392,7 @@ export var RacerController = {
     });
   },
   playingAgain: function (){
-    let that = this 
+    let that = this
     $("#button_playin_again").on("click", () => {
       this.channelRoom.push("playing_again", {name_room: that.name_room, username: that.username})
         .receive('ok', response => { console.log(response)
@@ -401,7 +401,7 @@ export var RacerController = {
           that.processRoom = response.process;
           that.uuid = response.process
           that.username = response.user
-          that.uuid_game = response.uuid 
+          that.uuid_game = response.uuid
           that.updatingPlayers(that.name_room)
           that.initChannelTimer(that.name_room, that.uuid_game)
           HandlebarsResolver.constructor.mergeViewWithModel("#timer_area", response, "timer_run_area")
@@ -410,11 +410,11 @@ export var RacerController = {
           $("#timer_run_area").show()
           $("#container-header-player").hide()
         })
-    })  
+    })
   },
   buttonFacebook: function () {
     $(".btn-facebook").on("click", () => {
-      
+
     })
   },
   initValidationsForms: function () {
