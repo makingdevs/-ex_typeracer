@@ -27,11 +27,16 @@
           </li-->
         </ul>
         <ul class="nav navbar-nav ml-auto">
-          <li class="nav-item">
-            <%= link(" ", to: login_path(@conn, :logout), method: :post, class: "fa fa-user-times") %>
+          <%= if @maybe_user != nil do %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">
+              <i class="fa fa-user" id="icon_check"></i> <%= @maybe_user.username%><span class="caret"></span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="download">
+              <%= link("End for today", to: login_path(@conn, :logout), method: :post, class: "dropdown-item") %>
+            </div>
           </li>
-        </ul>
-        <ul class="nav navbar-nav ml-auto">
+          <% end %>
           <li class="nav-item">
             <%=link("Global ranking", to: "/ranking", method: "get", class: "nav-link")%>
           </li>
