@@ -38,7 +38,7 @@ export var RacerController = {
 				$("#list_roms").html("")
 					$.each(msg.rooms, function( index, value ) {
             console.log(value)
-            $("#list_roms").append(`<tr class="table-info pointer room_ref"><th scope="row">Sala</th><td name="room">${value}</td><td>Esperando</td>hola</tr> `)
+            $("#list_roms").append(`<tr class="pointer room_ref"><td name="room">${value}</td></tr> `)
 					});
 			});
   },
@@ -447,7 +447,7 @@ export var RacerController = {
     $temp.val(text).select();
     document.execCommand("copy");
     $temp.remove();
-    $.notify({message: 'Link copied' },{ type: 'info'});
+    $.notify({message: "<i class='fa fa-clipboard' aria-hidden='true'></i> You have the mission's link, just paste it in the chat!" },{ type: 'info'});
   },
   sharedLink: function(){
     let that = this

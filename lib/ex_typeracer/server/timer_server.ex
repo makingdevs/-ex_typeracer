@@ -45,7 +45,7 @@ defmodule ExTyperacer.TimerServer do
     IO.puts "Counting..."
     IO.inspect uuid
     IO.inspect counter
-    broadcast counter, %{message: "Counting..", uuid: uuid, select: "new_time_"}
+    broadcast counter, %{message: "Starts in ...", uuid: uuid, select: "new_time_"}
     counter = counter - 1
     timer = Process.send_after(self(), {:work, counter, uuid},1_000)
     {:noreply, %{timer: timer}}

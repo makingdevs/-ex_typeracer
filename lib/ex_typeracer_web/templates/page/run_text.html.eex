@@ -1,9 +1,12 @@
 <script id="run_area" type="text/x-handlebars-template">
 
 <div class="container">
-  <h2>Corre¡¡¡</i></h2>
+  <h2>Type for your life</h2>
   <div class="panel panel-default text-font">
-    <div class="panel-body"> <span id="textCurrent" style="color: #5bc0de"></span><spanFake id="cursorText" class="animated flash">|</spanFake><span id="textToValidate">{{data}}</span></div>
+    <div class="panel-body text-justified">
+      <span id="textCurrent" style="color: #5bc0de"></span>
+      <spanFake id="cursorText" class="animated flash">|</spanFake><span id="textToValidate">{{data}}</span>
+    </div>
   </div>
 </div>
 

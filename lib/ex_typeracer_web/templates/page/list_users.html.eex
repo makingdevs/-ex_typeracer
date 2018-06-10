@@ -2,11 +2,11 @@
 <div id="link_shared_room">
 </div>
  <div id="list_users">
-  <p class="lead">Lista de jugadores en esta sala: </p>
+  <h3>Heroes in this room</h3>
   <ul class="list-group">
   {{#each userList}}
   <li class="list-group-item justify-content-between imageBackgoround">
-    {{this.username}}
+    <strong>{{this.username}}</strong>
     <span class="badge badge-default badge-pill" id="{{{this.username}}}">{{this.score}}</span>
     <div class="scott" id="{{{this.username}}}-sprite" style="margin-left: {{{this.score}}}%">
     </div>

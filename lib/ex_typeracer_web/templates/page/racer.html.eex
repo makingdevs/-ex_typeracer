@@ -1,90 +1,109 @@
 <br/>
-<div clas="col-lg-12">
+<div class="container">
   <div class="row">
-  <div class="col-lg-1 offset-lg-5">
-    <button class="btn btn-primary" id="link_to_shared"  style="display: none">Shared <i class="fa fa-share-alt-square"></i></button>
+    <div class="col-sm">
     </div>
-     <div class="col-lg-1" id="container_timer_waiting" >
-       <h4>
-         <span id="timer_waiting">10</span> 
-        </h4>
+    <div class="col-sm text-center" id="container_timer_waiting">
+      <h4>
+        This adventure starts in
+        <b><span id="timer_waiting" class="text-success">10</span></b>
+        seconds.
+      </h4>
+      <button class="btn btn-info btn-lg" id="link_to_shared" style="display: none">
+        Invite more heroes <i class="fa fa-share-alt"></i>
+      </button>
     </div>
-   <div class="col-lg-1" id="container_timer_playing" style="display: none">
-      <h4><span id="timer_playing">0</span></h4>
+    <div class="col-sm" id="container_timer_playing" style="display: none">
+      <h5 class="text-muted">
+        <i class="fa fa-clock-o" aria-hidden="true"></i>
+        <b><span id="timer_playing">0</span></b> seconds remaining
+      </h5>
+    </div>
+    <div class="col-sm">
     </div>
   </div>
-  
 </div>
-
 <br/>
 <div id="container-header-player">
-  <div class="jumbotron" id="initMenu">
-    <%= if @name_room != nil do %>
-      <button class="btn btn-success" id="playing_now">Jugar Ahora</button>
-    <% else %>
-    <div class="col-lg-6 offset-lg-4">
-      <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Save the world!</button>
-      <button class="btn btn-secondary" data-toggle="modal" data-target="#joinMatchModal">Join me with a team</button>
+  <div class="jumbotron" id="initMenu" style="background-image: url('https://www.setaswall.com/wp-content/uploads/2017/11/8-Bit-Wallpaper-22-1920x1200.jpg')">
+    <div class="col">
+      <h1 class="display-3">Start an adventure!</h1>
+      <p class="lead">Just do it!</p>
+      <p>Don't be afraid, maybe you're alone or with some friends but you can do it!</p>
+      <p class="lead">
+      <%= if @name_room != nil do %>
+        <button class="btn btn-success" id="playing_now">Play now</button>
+      <% else %>
+        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Save the world!</button>
+      <% end %>
+      </p>
     </div>
-    <% end %>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-lg-6">
-  <div id="container-run-area"> 
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <div id="container-run-area">
+      </div>
+      <div id="timer_run_area"> </div>
+    </div>
+    <div class="col-lg-6">
+      <div id="list_user_area"></div>
+    </div>
   </div>
-  <div id="timer_run_area"> </div>
-  </div>
-  <div class="col-lg-6">
-    <div id="list_user_area"></div>
-  </div>
-
 </div>
+
 <div class="container">
 
-<div id="list_roms_container">
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="row">
-        <div class="col-lg-2">
-        </div>
-        <div class="col-lg-8 ">
-          <div class="page-header">
-            <h1 id="tables">Partidas</h1>
+  <div id="list_roms_container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-2">
           </div>
-          <div class="bs-component">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">Type</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Status</th>
-                </tr>
-              </thead>
-              <tbody id="list_roms">
-              </tbody>
-            </table>
-            <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
-          </div>
-          <!-- /example -->
+          <div class="col-lg-8 ">
+            <div class="page-header">
+              <h2 id="tables">Current missions </h2>
+              <p class="text-success">Click any to join if available!</p>
+            </div>
+            <br/>
+            <div class="bs-component">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Adventure name</th>
+                  </tr>
+                </thead>
+                <tbody id="list_roms">
+                </tbody>
+              </table>
+              <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
+            </div>
+            <!-- /example -->
 
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-</div>
-
-<div id="list_positions_container">
+<hr/>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div id="list_positions_container">
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Iniciar partida</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Start an adventure</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -93,19 +112,19 @@
         <form>
           <div class="form-group">
             <%= if @maybe_user == nil do %>
-              <label for="recipient-name" class="col-form-label">Nombre de Usuarios:</label>
+              <label for="recipient-name" class="col-form-label">Heroname</label>
               <input type="text" class="form-control" id="recipient_name">
             <% else %>
               <%= text_input :recipient, :name, value: @maybe_user.username, type: "hidden" %>
             <% end %>
-            <label for="recipient-name" class="col-form-label">Nombre de Sala:</label>
+            <label for="recipient-name" class="col-form-label">Put a mission's name</label>
             <input type="text" class="form-control valid_word" id="name_room_txt">
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" id="start-room" data-dismiss="modal">Iniciar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Not at this moment</button>
+        <button type="button" class="btn btn-primary" id="start-room" data-dismiss="modal">Let's go !!!</button>
       </div>
     </div>
   </div>

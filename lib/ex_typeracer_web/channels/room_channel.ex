@@ -51,8 +51,8 @@ defmodule ExTyperacerWeb.RoomChannel do
     socket}
   end
 
-
   def handle_in("get_romms", _payload, socket) do
+    # TODO: Don't get from ETS, use a GenServer instead
     [{_, list_rooms}] = :ets.lookup(:list_rooms, "list")
     broadcast! socket, "list_rooms", %{"rooms" => list_rooms}
     {:noreply, socket}
