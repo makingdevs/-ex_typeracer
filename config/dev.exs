@@ -42,8 +42,8 @@ config :keyboard_heroes, KeyboardHeroesWeb.Endpoint,
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
-      ~r{lib/ex_typeracer_web/views/.*(ex)$},
-      ~r{lib/ex_typeracer_web/templates/.*(eex)$}
+      ~r{lib/keyboard_heroes_web/views/.*(ex)$},
+      ~r{lib/keyboard_heroes_web/templates/.*(eex)$}
     ]
   ]
 
@@ -61,6 +61,6 @@ config :keyboard_heroes, KeyboardHeroes.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "ex_typeracer_dev",
+  database: "keyboard_heroes_dev",
   hostname: "localhost",
   pool_size: 10

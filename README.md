@@ -25,7 +25,7 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * file in .deliver/config
 
   ``` java
-  APP="ex_typeracer"
+  APP="keyboard_heroes"
 
 BUILD_HOST="35.196.108.175"
 BUILD_USER="brandon"
@@ -78,7 +78,7 @@ pre_erlang_clean_compile() {
   ``` java
   export DATABASE_USERNAME=postgres
   export DATABASE_PASSWORD=postgres
-  export DATABASE_NAME=ex_typeracer_dev
+  export DATABASE_NAME=keyboard_heroes_dev
   # local machine
   export DATABASE_HOST=localhost
   export DATABASE_PORT=5432

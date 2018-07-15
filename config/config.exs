@@ -25,7 +25,7 @@ config :logger, :console,
 #Configures Guardian
 
 config :keyboard_heroes, KeyboardHeroes.Auth.Guardian,
-  issuer: "ex_typeracer", # Name of your app/company/product
+  issuer: "keyboard_heroes", # Name of your app/company/product
   secret_key: "AVp1NjzxTCrf5467/cGIjkeRxLOkKp5k1b6z9HjkLX0L3L5f5UVHE9uf3MkxnPNE", # Replace this with the output of the mix command
   serializer: KeyboardHeroes.GuardianSerializer
 

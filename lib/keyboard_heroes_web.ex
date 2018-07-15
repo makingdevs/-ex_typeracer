@@ -28,7 +28,7 @@ defmodule KeyboardHeroesWeb do
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/ex_typeracer_web/templates",
+      use Phoenix.View, root: "lib/keyboard_heroes_web/templates",
                         namespace: KeyboardHeroesWeb
 
       # Import convenience functions from controllers

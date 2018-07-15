@@ -14,6 +14,6 @@ config :keyboard_heroes, KeyboardHeroes.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "ex_typeracer_test",
+  database: "keyboard_heroes_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

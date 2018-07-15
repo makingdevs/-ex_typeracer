@@ -1,9 +1,9 @@
 #!/bin/bash
-cd ex_typeracer
+cd keyboard_heroes
 git pull origin master
 mix deps.get
 export WORKSPACE=/home/brandon/
-export APP=ex_typeracer
+export APP=keyboard_heroes
 mix edeliver build release
 mix edeliver stop production
 mix edeliver deploy release to production
