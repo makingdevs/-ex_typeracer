@@ -1,6 +1,6 @@
 defmodule ExTyperacer.Auth.Pipeline do
   use Guardian.Plug.Pipeline,
-    otp_app: :ex_typeracer,
+    otp_app: :keyboard_heroes,
     error_handler: ExTyperacer.Auth.ErrorHandler,
     module: ExTyperacer.Auth.Guardian
   # If there is a session token, validate it

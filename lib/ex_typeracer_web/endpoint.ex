@@ -1,5 +1,5 @@
 defmodule ExTyperacerWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :ex_typeracer
+  use Phoenix.Endpoint, otp_app: :keyboard_heroes
 
   socket "/socket", ExTyperacerWeb.UserSocket
 
@@ -8,7 +8,7 @@ defmodule ExTyperacerWeb.Endpoint do
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :ex_typeracer, gzip: false,
+    at: "/", from: :keyboard_heroes, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the

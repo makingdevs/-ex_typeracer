@@ -6,11 +6,11 @@
 use Mix.Config
 
 # General application configuration
-config :ex_typeracer,
+config :keyboard_heroes,
   ecto_repos: [ExTyperacer.Repo]
 
 # Configures the endpoint
-config :ex_typeracer, ExTyperacerWeb.Endpoint,
+config :keyboard_heroes, ExTyperacerWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "lxMN/1bBaGFkouBrWSBrfC/rkBWWv0sFaW44ytAsQcgR5HNsr/SQNa3zyX0VCtqy",
   render_errors: [view: ExTyperacerWeb.ErrorView, accepts: ~w(html json)],
@@ -24,7 +24,7 @@ config :logger, :console,
 
 #Configures Guardian
 
-config :ex_typeracer, ExTyperacer.Auth.Guardian,
+config :keyboard_heroes, ExTyperacer.Auth.Guardian,
   issuer: "ex_typeracer", # Name of your app/company/product
   secret_key: "AVp1NjzxTCrf5467/cGIjkeRxLOkKp5k1b6z9HjkLX0L3L5f5UVHE9uf3MkxnPNE", # Replace this with the output of the mix command
   serializer: ExTyperacer.GuardianSerializer
@@ -45,7 +45,7 @@ client_secret: System.get_env("FACEBOOK_APP_SECRET")
 
 #Config adapter email
 
-config :ex_typeracer, ExTyperacer.Mail.Mailer,
+config :keyboard_heroes, ExTyperacer.Mail.Mailer,
   adapter: Bamboo.SMTPAdapter,
   server: "smtp.gmail.com",
   port: 587,

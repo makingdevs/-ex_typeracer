@@ -26,7 +26,7 @@ defmodule ExTyperacerWeb.RoomChannel do
             "userList" => players,
             "user" => payload["username"],
             "uuid" => game.uuid,
-            "link_to_shared" => "#{Application.get_env(:ex_typeracer, ExTyperacerWeb.Endpoint)[:base_url]}/racer/#{payload["name_room"]}"
+            "link_to_shared" => "#{Application.get_env(:keyboard_heroes, ExTyperacerWeb.Endpoint)[:base_url]}/racer/#{payload["name_room"]}"
           }
     },
     socket}

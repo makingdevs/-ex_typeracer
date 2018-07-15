@@ -44,8 +44,8 @@ end
 # when running `mix release`, the first release in the file
 # will be used by default
 
-release :ex_typeracer do
-  set version: current_version(:ex_typeracer)
+release :keyboard_heroes do
+  set version: current_version(:keyboard_heroes)
   set applications: [
     :runtime_tools
   ]

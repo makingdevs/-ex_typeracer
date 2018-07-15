@@ -1,5 +1,5 @@
 defmodule ExTyperacer.Repo do
-  use Ecto.Repo, otp_app: :ex_typeracer
+  use Ecto.Repo, otp_app: :keyboard_heroes
 
   @doc """
   Dynamically loads the repository url from the
