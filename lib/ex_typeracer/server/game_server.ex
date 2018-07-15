@@ -1,11 +1,11 @@
-defmodule ExTyperacer.GameServer do
+defmodule KeyboardHeroes.GameServer do
 
   use GenServer
   require Kernel
   require Logger
-  alias ExTyperacer.Logic.{Game, Player}
-  alias ExTyperacer.Logic.Scores
-  alias ExTyperacer.Score
+  alias KeyboardHeroes.Logic.{Game, Player}
+  alias KeyboardHeroes.Logic.Scores
+  alias KeyboardHeroes.Score
 
   # Client Interface
 
@@ -65,11 +65,11 @@ defmodule ExTyperacer.GameServer do
   # Auxiliar functions
 
   def via_tuple(game_name) do
-    {:via, Registry, {ExTyperacer.GameRegistry, game_name}}
+    {:via, Registry, {KeyboardHeroes.GameRegistry, game_name}}
   end
 
   def get_name_game_server(name) do 
-    {:via, Registry, {ExTyperacer.GameRegistry, name_server}} = name
+    {:via, Registry, {KeyboardHeroes.GameRegistry, name_server}} = name
     name_server
   end
 

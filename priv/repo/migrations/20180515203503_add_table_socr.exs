@@ -1,4 +1,4 @@
-defmodule ExTyperacer.Repo.Migrations.AddTableSocr do
+defmodule KeyboardHeroes.Repo.Migrations.AddTableSocr do
   use Ecto.Migration
 
   def change do

@@ -1,5 +1,5 @@
-defmodule ExTyperacerWeb.PageControllerTest do
-  use ExTyperacerWeb.ConnCase
+defmodule KeyboardHeroesWeb.PageControllerTest do
+  use KeyboardHeroesWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

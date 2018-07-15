@@ -1,5 +1,5 @@
 
-# ExTyperacer
+# KeyboardHeroes
 
 To start your Phoenix server:
 

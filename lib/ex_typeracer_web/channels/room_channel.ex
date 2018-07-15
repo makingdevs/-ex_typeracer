@@ -1,8 +1,8 @@
-defmodule ExTyperacerWeb.RoomChannel do
+defmodule KeyboardHeroesWeb.RoomChannel do
 
-  alias ExTyperacer.Logic.Game
-  alias ExTyperacer.GameServer
-  alias ExTyperacer.Logic.PersonRepo
+  alias KeyboardHeroes.Logic.Game
+  alias KeyboardHeroes.GameServer
+  alias KeyboardHeroes.Logic.PersonRepo
   require Logger
 
   use Phoenix.Channel
@@ -26,7 +26,7 @@ defmodule ExTyperacerWeb.RoomChannel do
             "userList" => players,
             "user" => payload["username"],
             "uuid" => game.uuid,
-            "link_to_shared" => "#{Application.get_env(:keyboard_heroes, ExTyperacerWeb.Endpoint)[:base_url]}/racer/#{payload["name_room"]}"
+            "link_to_shared" => "#{Application.get_env(:keyboard_heroes, KeyboardHeroesWeb.Endpoint)[:base_url]}/racer/#{payload["name_room"]}"
           }
     },
     socket}

@@ -1,4 +1,4 @@
-defmodule ExTyperacerWeb.PlayersChannel do
+defmodule KeyboardHeroesWeb.PlayersChannel do
   use Phoenix.Channel
   require Logger
 

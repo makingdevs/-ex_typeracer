@@ -1,12 +1,12 @@
-defmodule ExTyperacerWeb.UserSocket do
+defmodule KeyboardHeroesWeb.UserSocket do
   use Phoenix.Socket
 
 
   ## Channels
-  channel "room:*", ExTyperacerWeb.RoomChannel
-	channel "timer:*", ExTyperacerWeb.TimerChannel
-	channel "players", ExTyperacerWeb.PlayersChannel
-	channel "scores", ExTyperacerWeb.ScoresChannel
+  channel "room:*", KeyboardHeroesWeb.RoomChannel
+	channel "timer:*", KeyboardHeroesWeb.TimerChannel
+	channel "players", KeyboardHeroesWeb.PlayersChannel
+	channel "scores", KeyboardHeroesWeb.ScoresChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -34,7 +34,7 @@ defmodule ExTyperacerWeb.UserSocket do
   # Would allow you to broadcast a "disconnect" event and terminate
   # all active sockets and channels for a given user:
   #
-  #     ExTyperacerWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
+  #     KeyboardHeroesWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
   def id(socket) do

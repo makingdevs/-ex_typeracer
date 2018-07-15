@@ -1,4 +1,4 @@
-defmodule ExTyperacer.Mail.Email do
+defmodule KeyboardHeroes.Mail.Email do
   import Bamboo.Email
   import Bamboo.Phoenix
 
@@ -26,7 +26,7 @@ defmodule ExTyperacer.Mail.Email do
     |> to(email)
     |> subject("Recuperación de contraseña")
     |> put_header("Reply-To", "someone@example.com")
-    |> html_body("<strong>Link para restaurar contraseña: #{Application.get_env(:keyboard_heroes, ExTyperacerWeb.Endpoint)[:base_url]}recovery/#{token}/#{username}</strong><br/><strong>Username: #{username}</strong>")
+    |> html_body("<strong>Link para restaurar contraseña: #{Application.get_env(:keyboard_heroes, KeyboardHeroesWeb.Endpoint)[:base_url]}recovery/#{token}/#{username}</strong><br/><strong>Username: #{username}</strong>")
     |> text_body("Welcome esta es tu contraseña")
   end
 
@@ -34,8 +34,8 @@ defmodule ExTyperacer.Mail.Email do
     # Here you can set a default from, default headers, etc.
     new_email
     |> from("brandon@makingdevs.com")
-    |> put_html_layout({ExTyperacer.LayoutView, "email.html"})
-    |> put_text_layout({ExTyperacer.LayoutView, "email.text"})
+    |> put_html_layout({KeyboardHeroes.LayoutView, "email.html"})
+    |> put_text_layout({KeyboardHeroes.LayoutView, "email.text"})
   end
 
 end

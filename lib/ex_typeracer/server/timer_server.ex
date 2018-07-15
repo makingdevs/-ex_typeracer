@@ -1,9 +1,9 @@
-defmodule ExTyperacer.TimerServer do
+defmodule KeyboardHeroes.TimerServer do
 
   use GenServer
   require Kernel
-  alias ExTyperacer.Logic.{Game, Player}
-  alias ExTyperacer.GameServer
+  alias KeyboardHeroes.Logic.{Game, Player}
+  alias KeyboardHeroes.GameServer
 
   def start_link() do
     GenServer.start_link(__MODULE__, %{})
@@ -11,7 +11,7 @@ defmodule ExTyperacer.TimerServer do
 
   def init(state) do
     IO.puts "Init timer"
-    ExTyperacerWeb.Endpoint.subscribe "timer:start", []
+    KeyboardHeroesWeb.Endpoint.subscribe "timer:start", []
     #timer = Process.send_after(self(), {:work, counter, uuid}, 1_000)
     #timer = Process.send_after(self(), {:work, 30, 3989},1_000)
     #IO.inspect timer
@@ -110,12 +110,12 @@ defmodule ExTyperacer.TimerServer do
 
   defp broadcast(time, response) do
     IO.inspect response
-    ExTyperacerWeb.Endpoint.broadcast! "timer:update","#{response.select}#{response.uuid}", %{ time: time, response: response.message}
+    KeyboardHeroesWeb.Endpoint.broadcast! "timer:update","#{response.select}#{response.uuid}", %{ time: time, response: response.message}
   end
 
   defp broadcast(time, response, positions) do
     IO.inspect response
-    ExTyperacerWeb.Endpoint.broadcast! "timer:update","#{response.select}#{response.uuid}", %{ time: time, response: response.message, positions: positions}
+    KeyboardHeroesWeb.Endpoint.broadcast! "timer:update","#{response.select}#{response.uuid}", %{ time: time, response: response.message, positions: positions}
   end
 
 end

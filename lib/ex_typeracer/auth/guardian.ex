@@ -1,6 +1,6 @@
-defmodule ExTyperacer.Auth.Guardian do
+defmodule KeyboardHeroes.Auth.Guardian do
   use Guardian, otp_app: :keyboard_heroes
-  alias ExTyperacer.Logic.PersonRepo
+  alias KeyboardHeroes.Logic.PersonRepo
   def subject_for_token(user, _claims) do
     {:ok, to_string(user.id)}
   end

@@ -1,4 +1,4 @@
-defmodule ExTyperacer.Repo.Migrations.AlterColumParagraph do
+defmodule KeyboardHeroes.Repo.Migrations.AlterColumParagraph do
   use Ecto.Migration
 
   def change do

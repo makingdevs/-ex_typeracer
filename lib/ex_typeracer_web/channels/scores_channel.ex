@@ -1,10 +1,10 @@
-defmodule ExTyperacerWeb.ScoresChannel do
+defmodule KeyboardHeroesWeb.ScoresChannel do
 
   use Phoenix.Channel
   require Logger
-  alias ExTyperacer.Logic.Game
-  alias ExTyperacer.Logic.Player
-  alias ExTyperacer.GameServer
+  alias KeyboardHeroes.Logic.Game
+  alias KeyboardHeroes.Logic.Player
+  alias KeyboardHeroes.GameServer
 
   def join("scores", payload, socket) do
     Logger.warn " ::::::::: Scores Join Payload ::::::::"

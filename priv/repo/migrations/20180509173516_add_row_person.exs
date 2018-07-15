@@ -1,4 +1,4 @@
-defmodule ExTyperacer.Repo.Migrations.AddRowPerson do
+defmodule KeyboardHeroes.Repo.Migrations.AddRowPerson do
   use Ecto.Migration
 
   def change do

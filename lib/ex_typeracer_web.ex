@@ -1,12 +1,12 @@
-defmodule ExTyperacerWeb do
+defmodule KeyboardHeroesWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use ExTyperacerWeb, :controller
-      use ExTyperacerWeb, :view
+      use KeyboardHeroesWeb, :controller
+      use KeyboardHeroesWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,17 +19,17 @@ defmodule ExTyperacerWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: ExTyperacerWeb
+      use Phoenix.Controller, namespace: KeyboardHeroesWeb
       import Plug.Conn
-      import ExTyperacerWeb.Router.Helpers
-      import ExTyperacerWeb.Gettext
+      import KeyboardHeroesWeb.Router.Helpers
+      import KeyboardHeroesWeb.Gettext
     end
   end
 
   def view do
     quote do
       use Phoenix.View, root: "lib/ex_typeracer_web/templates",
-                        namespace: ExTyperacerWeb
+                        namespace: KeyboardHeroesWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
@@ -37,9 +37,9 @@ defmodule ExTyperacerWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import ExTyperacerWeb.Router.Helpers
-      import ExTyperacerWeb.ErrorHelpers
-      import ExTyperacerWeb.Gettext
+      import KeyboardHeroesWeb.Router.Helpers
+      import KeyboardHeroesWeb.ErrorHelpers
+      import KeyboardHeroesWeb.Gettext
     end
   end
 
@@ -54,7 +54,7 @@ defmodule ExTyperacerWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import ExTyperacerWeb.Gettext
+      import KeyboardHeroesWeb.Gettext
     end
   end
 

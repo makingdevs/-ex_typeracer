@@ -1,4 +1,4 @@
-defmodule ExTyperacerWeb.LoginView do
-  use ExTyperacerWeb, :view
+defmodule KeyboardHeroesWeb.LoginView do
+  use KeyboardHeroesWeb, :view
 end
 

@@ -1,12 +1,12 @@
-defmodule ExTyperacer.Logic.GameTest do
+defmodule KeyboardHeroes.Logic.GameTest do
 
   @moduledoc """
   Maybe we should move the paragraph getting to a module
   """
 
   use ExUnit.Case
-  alias ExTyperacer.Logic.Game
-  alias ExTyperacer.Logic.Player
+  alias KeyboardHeroes.Logic.Game
+  alias KeyboardHeroes.Logic.Player
   doctest Game
 
 

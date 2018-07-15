@@ -1,4 +1,4 @@
-defmodule ExTyperacer.Repo.Migrations.AddConstrainToPerson do
+defmodule KeyboardHeroes.Repo.Migrations.AddConstrainToPerson do
   use Ecto.Migration
 
   def change do

@@ -1,4 +1,4 @@
 ExUnit.start()
 
-Ecto.Adapters.SQL.Sandbox.mode(ExTyperacer.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(KeyboardHeroes.Repo, :manual)
 

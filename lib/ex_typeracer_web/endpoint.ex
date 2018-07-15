@@ -1,7 +1,7 @@
-defmodule ExTyperacerWeb.Endpoint do
+defmodule KeyboardHeroesWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :keyboard_heroes
 
-  socket "/socket", ExTyperacerWeb.UserSocket
+  socket "/socket", KeyboardHeroesWeb.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -37,7 +37,7 @@ defmodule ExTyperacerWeb.Endpoint do
     key: "_ex_typeracer_key",
     signing_salt: "o1GzGfep"
 
-  plug ExTyperacerWeb.Router
+  plug KeyboardHeroesWeb.Router
 
   @doc """
   Callback invoked for dynamically configuring the endpoint.

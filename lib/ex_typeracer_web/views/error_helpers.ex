@@ -1,4 +1,4 @@
-defmodule ExTyperacerWeb.ErrorHelpers do
+defmodule KeyboardHeroesWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -36,9 +36,9 @@ defmodule ExTyperacerWeb.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(ExTyperacerWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(KeyboardHeroesWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(ExTyperacerWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(KeyboardHeroesWeb.Gettext, "errors", msg, opts)
     end
   end
 end

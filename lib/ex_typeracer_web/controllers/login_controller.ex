@@ -1,6 +1,6 @@
-defmodule ExTyperacerWeb.LoginController do
-  use ExTyperacerWeb, :controller
-  alias ExTyperacer.{Person, Logic.PersonRepo, Auth.Guardian}
+defmodule KeyboardHeroesWeb.LoginController do
+  use KeyboardHeroesWeb, :controller
+  alias KeyboardHeroes.{Person, Logic.PersonRepo, Auth.Guardian}
 
   plug Ueberauth
   plug :put_layout, "login.html"

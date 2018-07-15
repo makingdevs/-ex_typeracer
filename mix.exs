@@ -1,4 +1,4 @@
-defmodule ExTyperacer.Mixfile do
+defmodule KeyboardHeroes.Mixfile do
   use Mix.Project
 
   def project do
@@ -19,7 +19,7 @@ defmodule ExTyperacer.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {ExTyperacer.Application, []},
+      mod: {KeyboardHeroes.Application, []},
       extra_applications: [:logger, :runtime_tools,  :edeliver, :guardian, :ueberauth_facebook, :bamboo, :bamboo_smtp],
     ]
   end

@@ -1,11 +1,11 @@
 
-defmodule ExTyperacerWeb.RankingController do
-  use ExTyperacerWeb, :controller
-  alias ExTyperacer.Repo
-  alias ExTyperacer.Person
-  alias ExTyperacer.Logic.PersonRepo
-  alias ExTyperacer.Logic.Scores
-  alias ExTyperacer.Auth.Guardian
+defmodule KeyboardHeroesWeb.RankingController do
+  use KeyboardHeroesWeb, :controller
+  alias KeyboardHeroes.Repo
+  alias KeyboardHeroes.Person
+  alias KeyboardHeroes.Logic.PersonRepo
+  alias KeyboardHeroes.Logic.Scores
+  alias KeyboardHeroes.Auth.Guardian
   plug Ueberauth
 
   def index(conn, _params) do

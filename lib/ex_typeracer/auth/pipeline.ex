@@ -1,8 +1,8 @@
-defmodule ExTyperacer.Auth.Pipeline do
+defmodule KeyboardHeroes.Auth.Pipeline do
   use Guardian.Plug.Pipeline,
     otp_app: :keyboard_heroes,
-    error_handler: ExTyperacer.Auth.ErrorHandler,
-    module: ExTyperacer.Auth.Guardian
+    error_handler: KeyboardHeroes.Auth.ErrorHandler,
+    module: KeyboardHeroes.Auth.Guardian
   # If there is a session token, validate it
   plug Guardian.Plug.VerifySession, claims: %{"typ" => "access"}
   # If there is an authorization header, validate it

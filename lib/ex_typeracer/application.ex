@@ -1,4 +1,4 @@
-defmodule ExTyperacer.Application do
+defmodule KeyboardHeroes.Application do
   use Application
 
   # See https://hexdocs.pm/elixir/Application.html
@@ -9,13 +9,13 @@ defmodule ExTyperacer.Application do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      supervisor(ExTyperacer.Repo, []),
+      supervisor(KeyboardHeroes.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(ExTyperacerWeb.Endpoint, []),
-			#worker(ExTyperacer.Timer, []), #init Timer server
-      # Start your own worker by calling: ExTyperacer.Worker.start_link(arg1, arg2, arg3)
-      # worker(ExTyperacer.Worker, [arg1, arg2, arg3]),
-      {Registry, keys: :unique, name: ExTyperacer.GameRegistry},
+      supervisor(KeyboardHeroesWeb.Endpoint, []),
+			#worker(KeyboardHeroes.Timer, []), #init Timer server
+      # Start your own worker by calling: KeyboardHeroes.Worker.start_link(arg1, arg2, arg3)
+      # worker(KeyboardHeroes.Worker, [arg1, arg2, arg3]),
+      {Registry, keys: :unique, name: KeyboardHeroes.GameRegistry},
     ]
 
 		# ETS for save users id
@@ -31,14 +31,14 @@ defmodule ExTyperacer.Application do
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: ExTyperacer.Supervisor]
+    opts = [strategy: :one_for_one, name: KeyboardHeroes.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    ExTyperacerWeb.Endpoint.config_change(changed, removed)
+    KeyboardHeroesWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

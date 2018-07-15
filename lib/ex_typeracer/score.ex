@@ -1,4 +1,4 @@
-defmodule ExTyperacer.Score do
+defmodule KeyboardHeroes.Score do
   use Ecto.Schema
   import Ecto.Changeset
 

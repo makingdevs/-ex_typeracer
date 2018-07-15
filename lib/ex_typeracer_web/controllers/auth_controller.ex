@@ -1,9 +1,9 @@
-defmodule ExTyperacerWeb.AuthController do
+defmodule KeyboardHeroesWeb.AuthController do
   @moduledoc """
   Auth controller responsible for handling Ueberauth responses
   """
 
-  use ExTyperacerWeb, :controller
+  use KeyboardHeroesWeb, :controller
   plug Ueberauth
 
   alias Ueberauth.Strategy.Helpers

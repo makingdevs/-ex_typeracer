@@ -1,3 +1,3 @@
-defmodule ExTyperacerWeb.RankingView do
-  use ExTyperacerWeb, :view
+defmodule KeyboardHeroesWeb.RankingView do
+  use KeyboardHeroesWeb, :view
 end

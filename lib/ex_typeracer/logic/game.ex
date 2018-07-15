@@ -1,4 +1,4 @@
-defmodule ExTyperacer.Logic.Game do
+defmodule KeyboardHeroes.Logic.Game do
   @moduledoc """
   This module handle the logic of TypeRacer Game
   """
@@ -7,14 +7,14 @@ defmodule ExTyperacer.Logic.Game do
   defstruct players: [], paragraph: nil, letters: [], uuid: nil, positions: [], timer: nil, status: nil
 
   alias __MODULE__
-  alias ExTyperacer.Logic.Player
+  alias KeyboardHeroes.Logic.Player
 
   @doc """
   Creates a new game with a paragrapah to play and type.
   This game starts with zero players.
   """
   def new(paragraph) do
-    %Game{ paragraph: paragraph, letters: String.codepoints(paragraph), uuid: :rand.uniform(10000), timer: ExTyperacer.TimerServer.start_link, status: "waiting" }
+    %Game{ paragraph: paragraph, letters: String.codepoints(paragraph), uuid: :rand.uniform(10000), timer: KeyboardHeroes.TimerServer.start_link, status: "waiting" }
   end
 
   @doc """

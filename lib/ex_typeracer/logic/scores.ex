@@ -1,7 +1,7 @@
-defmodule ExTyperacer.Logic.Scores do
+defmodule KeyboardHeroes.Logic.Scores do
 
-  alias ExTyperacer.Repo
-  alias ExTyperacer.Score
+  alias KeyboardHeroes.Repo
+  alias KeyboardHeroes.Score
   import Ecto.Query, only: [from: 2]
 
   def save_score(score) do

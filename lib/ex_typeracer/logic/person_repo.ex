@@ -1,11 +1,11 @@
-defmodule ExTyperacer.Logic.PersonRepo do
+defmodule KeyboardHeroes.Logic.PersonRepo do
 
-  alias ExTyperacer.Repo
-  alias ExTyperacer.Person
+  alias KeyboardHeroes.Repo
+  alias KeyboardHeroes.Person
   import Ecto.Query, only: [from: 2]
   alias Comeonin.Bcrypt
-  alias ExTyperacer.Mail.Email
-  alias ExTyperacer.Mail.Mailer
+  alias KeyboardHeroes.Mail.Email
+  alias KeyboardHeroes.Mail.Mailer
 
   def save_person(person) do
     changeset = Person.changeset( %Person{}, Map.from_struct(person))
@@ -27,7 +27,7 @@ defmodule ExTyperacer.Logic.PersonRepo do
   end
 
   def send_email_token_recovery(person) do
-    token = Phoenix.Token.sign(ExTyperacerWeb.Endpoint, person.username, person.id)
+    token = Phoenix.Token.sign(KeyboardHeroesWeb.Endpoint, person.username, person.id)
     IO.inspect token
     Email.send_email_recovery(person.email, token, person.username) |> Mailer.deliver_now
   end

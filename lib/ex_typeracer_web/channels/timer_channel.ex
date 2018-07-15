@@ -1,7 +1,7 @@
-defmodule ExTyperacerWeb.TimerChannel do
+defmodule KeyboardHeroesWeb.TimerChannel do
 
   use Phoenix.Channel
-  alias ExTyperacer.GameServer
+  alias KeyboardHeroes.GameServer
 
   def join("timer:update", _msg, socket) do
     {:ok, socket}
@@ -17,7 +17,7 @@ defmodule ExTyperacerWeb.TimerChannel do
     [{_,game_server}] = :ets.lookup(:"#{payload["name_room"]}","game")
     IO.inspect game_server
     GameServer.start_timer game_server, 3
-		#ExTyperacerWeb.Endpoint.broadcast("timer:start", "start_timer", %{uuid: payload["name_room"]})
+		#KeyboardHeroesWeb.Endpoint.broadcast("timer:start", "start_timer", %{uuid: payload["name_room"]})
 		{:noreply, socket}
 	end
 

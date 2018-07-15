@@ -1,4 +1,4 @@
-defmodule ExTyperacer.Timer do
+defmodule KeyboardHeroes.Timer do
 
   use GenServer
   require Logger
@@ -10,7 +10,7 @@ defmodule ExTyperacer.Timer do
   ## Gen server starts here!
 
   def init(_state) do
-    ExTyperacerWeb.Endpoint.subscribe "timer:start", []
+    KeyboardHeroesWeb.Endpoint.subscribe "timer:start", []
     IO.inspect "1est"
     # Adding state
     state = %{timer_ref: nil, timer: nil}
@@ -68,7 +68,7 @@ defmodule ExTyperacer.Timer do
 
   defp broadcast(time, response) do
     IO.inspect response
-    ExTyperacerWeb.Endpoint.broadcast! "timer:update", "new_time_#{response.uuid}", %{ response: response.message, time: time}
+    KeyboardHeroesWeb.Endpoint.broadcast! "timer:update", "new_time_#{response.uuid}", %{ response: response.message, time: time}
   end
 
 end

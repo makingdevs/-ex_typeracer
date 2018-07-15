@@ -1,4 +1,4 @@
-defmodule ExTyperacerWeb.ChannelCase do
+defmodule KeyboardHeroesWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule ExTyperacerWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint ExTyperacerWeb.Endpoint
+      @endpoint KeyboardHeroesWeb.Endpoint
     end
   end
 
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ExTyperacer.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(KeyboardHeroes.Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(ExTyperacer.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(KeyboardHeroes.Repo, {:shared, self()})
     end
     :ok
   end

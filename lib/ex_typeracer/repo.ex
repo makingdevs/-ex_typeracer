@@ -1,4 +1,4 @@
-defmodule ExTyperacer.Repo do
+defmodule KeyboardHeroes.Repo do
   use Ecto.Repo, otp_app: :keyboard_heroes
 
   @doc """

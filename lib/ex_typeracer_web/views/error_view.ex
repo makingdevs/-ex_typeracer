@@ -1,5 +1,5 @@
-defmodule ExTyperacerWeb.ErrorView do
-  use ExTyperacerWeb, :view
+defmodule KeyboardHeroesWeb.ErrorView do
+  use KeyboardHeroesWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

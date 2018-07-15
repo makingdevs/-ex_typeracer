@@ -1,5 +1,5 @@
-defmodule ExTyperacerWeb.Router do
-  use ExTyperacerWeb, :router
+defmodule KeyboardHeroesWeb.Router do
+  use KeyboardHeroesWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -10,7 +10,7 @@ defmodule ExTyperacerWeb.Router do
   end
 
   pipeline :auth do
-    plug ExTyperacer.Auth.Pipeline
+    plug KeyboardHeroes.Auth.Pipeline
   end
 
   pipeline :ensure_auth do
@@ -21,7 +21,7 @@ defmodule ExTyperacerWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", ExTyperacerWeb do
+  scope "/", KeyboardHeroesWeb do
     pipe_through [:browser, :auth] # Use the default browser stack
 
     get "/", PageController, :index
@@ -34,28 +34,28 @@ defmodule ExTyperacerWeb.Router do
     post "/restore_pass", PageController, :restore_pass
   end
 
-  scope "/ranking", ExTyperacerWeb do
+  scope "/ranking", KeyboardHeroesWeb do
     pipe_through [:browser, :auth] # Use the default browser stack
 
     get "/", RankingController, :index
   end
 
 
-  scope "/auth", ExTyperacerWeb do
+  scope "/auth", KeyboardHeroesWeb do
     pipe_through [:browser, :auth] # Use the default browser stack
 
     get "/:provider", AuthController, :request
     get "/:provider/callback", AuthController, :callback
   end
 
-  scope "/auth", ExTyperacerWeb do
+  scope "/auth", KeyboardHeroesWeb do
     pipe_through [:browser, :auth] # Use the default browser stack
 
     get "/:provider", AuthController, :request
     get "/:provider/callback", AuthController, :callback
   end
 
-  scope "/login", ExTyperacerWeb do
+  scope "/login", KeyboardHeroesWeb do
     pipe_through [:browser, :auth] # Use the default browser stack
     get "/", LoginController, :index
     post "/", LoginController, :login
@@ -63,7 +63,7 @@ defmodule ExTyperacerWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ExTyperacerWeb do
+  # scope "/api", KeyboardHeroesWeb do
   #   pipe_through :api
   # end
 end

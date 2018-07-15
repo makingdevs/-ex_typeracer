@@ -1,4 +1,4 @@
-defmodule ExTyperacer.Logic.Player do
+defmodule KeyboardHeroes.Logic.Player do
   @moduledoc """
   This module handle the Player data and maybe the behaviour
   """

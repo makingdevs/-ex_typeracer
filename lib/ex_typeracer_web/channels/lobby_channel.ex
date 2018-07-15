@@ -1,4 +1,4 @@
-defmodule ExTyperacerWeb.LobbyChannel do
+defmodule KeyboardHeroesWeb.LobbyChannel do
   use Phoenix.Channel
 
   def join("lobby", payload, socket) do

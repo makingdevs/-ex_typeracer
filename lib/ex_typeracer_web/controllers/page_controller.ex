@@ -1,10 +1,10 @@
-defmodule ExTyperacerWeb.PageController do
-  use ExTyperacerWeb, :controller
-  alias ExTyperacer.Repo
-  alias ExTyperacer.Person
-  alias ExTyperacer.Logic.PersonRepo
-  alias ExTyperacer.Auth.Guardian
-  alias ExTyperacerWeb.LoginController
+defmodule KeyboardHeroesWeb.PageController do
+  use KeyboardHeroesWeb, :controller
+  alias KeyboardHeroes.Repo
+  alias KeyboardHeroes.Person
+  alias KeyboardHeroes.Logic.PersonRepo
+  alias KeyboardHeroes.Auth.Guardian
+  alias KeyboardHeroesWeb.LoginController
   plug Ueberauth
 
   def index(conn, _params) do
@@ -51,7 +51,7 @@ defmodule ExTyperacerWeb.PageController do
 
   def recovery(conn, %{"token" => token, "username" => username}) do
     {user_id, view_token} =
-    case Phoenix.Token.verify(ExTyperacerWeb.Endpoint, username, token, max_age: 7200) do
+    case Phoenix.Token.verify(KeyboardHeroesWeb.Endpoint, username, token, max_age: 7200) do
       {:ok, user_id} ->
         IO.puts "Validao"
         user_id = user_id

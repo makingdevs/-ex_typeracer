@@ -1,3 +1,3 @@
-defmodule ExTyperacerWeb.PageView do
-  use ExTyperacerWeb, :view
+defmodule KeyboardHeroesWeb.PageView do
+  use KeyboardHeroesWeb, :view
 end

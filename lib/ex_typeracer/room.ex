@@ -1,9 +1,9 @@
-defmodule ExTyperacer.Room do
+defmodule KeyboardHeroes.Room do
 
-  alias ExTyperacer.Logic.Game
+  alias KeyboardHeroes.Logic.Game
   
   def start(%Game{} = game) do
-    spawn ExTyperacer.Room, :handle, [game]
+    spawn KeyboardHeroes.Room, :handle, [game]
   end
 
   def add_player(game_server, username) do
@@ -51,7 +51,7 @@ defmodule ExTyperacer.Room do
         IO.inspect msg
         #send pid, [ pid: self(), msg: "ping"]
         #send pid, {pid, msg}
-        #pid2 = spawn ExTyperacer.Room, :pong, []
+        #pid2 = spawn KeyboardHeroes.Room, :pong, []
         send pid, { self(), "Ping"}
         ping()
       _ -> 

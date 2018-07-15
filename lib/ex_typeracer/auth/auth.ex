@@ -1,4 +1,4 @@
-#defmodule  ExTyperacer.Auth.Auth do
+#defmodule  KeyboardHeroes.Auth.Auth do
 #  alias Comeonin.Bcrypt
 #
 #  def authenticate_user(username, plain_text_password) do
