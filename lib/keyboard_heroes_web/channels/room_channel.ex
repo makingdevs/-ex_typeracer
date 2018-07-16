@@ -1,6 +1,5 @@
 defmodule KeyboardHeroesWeb.RoomChannel do
 
-  alias KeyboardHeroes.Logic.Game
   alias KeyboardHeroes.GameServer
   alias KeyboardHeroes.Logic.PersonRepo
   require Logger
@@ -17,8 +16,7 @@ defmodule KeyboardHeroesWeb.RoomChannel do
   end
 
   def handle_in("init_reace", payload, socket) do
-    username = payload["username"]
-    [game_server, players, game, list_rooms] = init_game(payload)
+    [_game_server, players, game, list_rooms] = init_game(payload)
     {:reply,
     {:ok, %{"list" => list_rooms,
             "process" => payload["name_room"],
@@ -32,7 +30,7 @@ defmodule KeyboardHeroesWeb.RoomChannel do
   end
 
   def handle_in("join_race", payload, socket) do
-    [game_server, game, players, list_rooms] = join_game(payload)
+    [_game_server, game, players, list_rooms] = join_game(payload)
     {:reply,
     {:ok, %{"list" => list_rooms,
             "process" => payload["name_room"],
@@ -71,11 +69,9 @@ defmodule KeyboardHeroesWeb.RoomChannel do
   end
 
   def handle_in("exist_username", username, socket) do
-    existed = PersonRepo.find_user_by_username username
-    if existed do
-      existed = true
-    else
-      existed = false
+    existed = case PersonRepo.find_user_by_username username do
+      nil -> false
+      _ -> true
     end
     {:reply, {:ok, %{existed: existed}}, socket}
   end
@@ -86,28 +82,23 @@ defmodule KeyboardHeroesWeb.RoomChannel do
   end
 
   def handle_in("exist_email", email, socket) do
-    existed = PersonRepo.find_user_by_email email
-    if existed do
-      existed = true
-    else
-      existed = false
+    existed = case PersonRepo.find_user_by_email email do
+      nil -> false
+      _ -> true
     end
     {:reply, {:ok, %{existed: existed}}, socket}
   end
 
   def handle_in("recovery_pass", email, socket) do
-    existed = PersonRepo.find_user_by_email email
-    if existed do
-      PersonRepo.send_email_token_recovery existed
-      existed = true
-    else
-      existed = false
+    existed = case PersonRepo.find_user_by_email email do
+      nil -> false
+      _ -> true
     end
     {:reply, {:ok, %{existed: existed}}, socket}
   end
 
   def handle_in("playing_again", payload, socket) do
-    [game_server, game, players, list_rooms] =
+    [_game_server, game, players, list_rooms] =
     if checking_game(payload["name_room"]) do
       join_game(payload)
     else

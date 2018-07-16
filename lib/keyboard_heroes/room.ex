@@ -7,7 +7,7 @@ defmodule KeyboardHeroes.Room do
   end
 
   def add_player(game_server, username) do
-    send game_server, { self(), :add_player, "brandon" }
+    send game_server, { self(), :add_player, username }
   end
 
   def handle(%Game{} = game) do
@@ -20,7 +20,7 @@ defmodule KeyboardHeroes.Room do
         send pid, {:current_game, game}
         handle(game)
       {pid, :death, reason} ->
-        send pid, "Game Over"
+        send pid, "Game Over #{inspect reason}"
       _ ->
           handle(game)
     end

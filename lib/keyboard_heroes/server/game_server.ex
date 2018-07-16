@@ -3,7 +3,7 @@ defmodule KeyboardHeroes.GameServer do
   use GenServer
   require Kernel
   require Logger
-  alias KeyboardHeroes.Logic.{Game, Player}
+  alias KeyboardHeroes.Logic.Game
   alias KeyboardHeroes.Logic.Scores
   alias KeyboardHeroes.Score
 
@@ -105,14 +105,17 @@ defmodule KeyboardHeroes.GameServer do
     {:reply, state.paragraph, state}
   end
 
+  def handle_call({:get_game}, _from, state) do
+    {:reply, state, state}
+  end
+
+  def handle_call({:get_players}, _from, state) do
+    {:reply, state.players, state}
+  end
+
   def handle_cast({:add_player, username}, state) do
     game = Game.add_player(state, username)
     {:noreply, game}
-  end
-
-  def handle_call({:get_a_paragraph}, state) do
-    Game.get_a_paragraph
-    {:reply, "hola"}
   end
 
   def handle_call({:update_status, status}, _from, state) do
@@ -125,22 +128,9 @@ defmodule KeyboardHeroes.GameServer do
     {:reply, player, state}
   end
 
-  def handle_call({:plays, username, letter}, _from, state) do
-    game = Game.plays(state, username, letter)
-    {:reply, game, state}
-  end
-
-  def handle_call({:get_players}, _from, state) do
-    {:reply, state.players, state}
-  end
-
   def handle_cast({:update_socere_player, player}, state) do
     game = Game.update_socere_player(state, player)
     {:noreply, game}
-  end
-
-  def handle_call({:get_game}, _from, state) do
-    {:reply, state, state}
   end
 
   def handle_cast({:add_player_to_position, player }, state) do
@@ -155,12 +145,17 @@ defmodule KeyboardHeroes.GameServer do
     {:reply, status, state}
   end
 
+  def handle_call({:plays, username, letter}, _from, state) do
+    game = Game.plays(state, username, letter)
+    {:reply, game, state}
+  end
+
   def handle_cast({:terminate_game}, state) do
     terminate(:shutdown, state)
     {:noreply, state}
   end
 
-  def terminate(reason, state) do
+  def terminate(_reason, _state) do
     :shutdown
   end
 
