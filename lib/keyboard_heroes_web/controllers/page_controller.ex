@@ -44,7 +44,7 @@ defmodule KeyboardHeroesWeb.PageController do
 
     struct(%Person{}, kwl)
     |> PersonRepo.save_person
-    |> PersonRepo.send_email_register(kwl[:password])
+    |> PersonRepo.send_email_register
     |> LoginController.login(conn, kwl[:password])
     redirect(conn, to: "/")
   end

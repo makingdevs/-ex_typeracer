@@ -16,13 +16,13 @@ defmodule KeyboardHeroes.Logic.PersonRepo do
   end
 
   def update_person(person, password) do
-    changeset = Person.changeset( person, %{ password: password}) 
+    changeset = Person.changeset( person, %{ password: password})
     IO.inspect changeset
     Repo.update changeset
   end
 
-  def send_email_register({:ok, person}, password) do
-    Email.send_email_register(person, password) |> Mailer.deliver_now
+  def send_email_register({:ok, person}) do
+    Email.send_email_register(person) |> Mailer.deliver_now
     person.username
   end
 
@@ -46,14 +46,14 @@ defmodule KeyboardHeroes.Logic.PersonRepo do
 
   def find_user_by_id(id) do
     person = Repo.get Person, id
-    case person do 
+    case person do
       nil -> {:not, ""}
       _ -> {:ok, person}
     end
   end
 
   def check_password(nil, _), do: {:error, "Incorrect username or password"}
-  
+
   def check_password(person, password) do
     case Bcrypt.checkpw(password, person.password) do
       true -> {:ok, person}
