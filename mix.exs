@@ -41,14 +41,14 @@ defmodule KeyboardHeroes.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      { :uuid, "~> 1.1" },
+      {:uuid, "~> 1.1" },
       {:edeliver, "~> 1.5.0"},
       {:distillery, "~> 1.4", runtime: false},
       {:guardian, "~> 1.0-beta"},
       {:comeonin, "~> 4.0"},
       {:bcrypt_elixir, "~> 0.12"},
       {:ueberauth_facebook, "~> 0.7"},
-      {:bamboo_smtp, "~> 1.4.0"}
+      {:bamboo_smtp, "~> 1.5.0"}
     ]
   end
 
