@@ -17,7 +17,6 @@ defmodule KeyboardHeroes.Logic.PersonRepo do
 
   def update_person(person, password) do
     changeset = Person.changeset( person, %{ password: password})
-    IO.inspect changeset
     Repo.update changeset
   end
 
@@ -28,7 +27,6 @@ defmodule KeyboardHeroes.Logic.PersonRepo do
 
   def send_email_token_recovery(person) do
     token = Phoenix.Token.sign(KeyboardHeroesWeb.Endpoint, person.username, person.id)
-    IO.inspect token
     Email.send_email_recovery(person.email, token, person.username) |> Mailer.deliver_now
   end
 
@@ -60,7 +58,6 @@ defmodule KeyboardHeroes.Logic.PersonRepo do
       false -> {:error, "Incorrect username or password"}
     end
   end
-
 
   def get_user!(id), do: Repo.get!(Person, id)
 

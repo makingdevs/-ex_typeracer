@@ -28,7 +28,7 @@ defmodule KeyboardHeroes.GameServer do
   end
 
   def players(name) do
-    GenServer.call name, {:get_players} 
+    GenServer.call name, {:get_players}
   end
 
   def paragraph_of_game(name) do
@@ -53,13 +53,13 @@ defmodule KeyboardHeroes.GameServer do
     send(timer , {:start_timer, counter, name, game})
   end
 
-  def start_timer_waiting(name, counter) do 
+  def start_timer_waiting(name, counter) do
     game = GenServer.call name, {:get_game}
     {:ok, timer} = game.timer
     send(timer , {:start_timer_waiting, counter, name, game})
   end
 
-  def update_status_game(name, status) do 
+  def update_status_game(name, status) do
     GenServer.call name, {:update_status, status}
   end
   # Auxiliar functions
@@ -68,7 +68,7 @@ defmodule KeyboardHeroes.GameServer do
     {:via, Registry, {KeyboardHeroes.GameRegistry, game_name}}
   end
 
-  def get_name_game_server(name) do 
+  def get_name_game_server(name) do
     {:via, Registry, {KeyboardHeroes.GameRegistry, name_server}} = name
     name_server
   end
@@ -156,22 +156,12 @@ defmodule KeyboardHeroes.GameServer do
   end
 
   def handle_cast({:terminate_game}, state) do
-    IO.puts "Terminará..."
     terminate(:shutdown, state)
     {:noreply, state}
   end
-  
+
   def terminate(reason, state) do
-    IO.puts "Termina el proceso"
-    IO.inspect state
     :shutdown
   end
-
-  # def handle_info(:timeout, state) do
-  # end
-
-  # def terminate(_reason, _state) do
-  #   :ok
-  # end
 
 end

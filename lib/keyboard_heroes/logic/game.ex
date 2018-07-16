@@ -64,15 +64,13 @@ defmodule KeyboardHeroes.Logic.Game do
         random_number = :rand.uniform(length(paragraphs)-1)
         Enum.at(paragraphs, random_number)
       {:error, reason} ->
-        IO.puts "error reading the file: #{inspect reason}"
-        _default ->
+        {:error, reason}
     end
   end
 
   def update_socere_player(game, player) do
-    players = for element <- game.players, element.username != player.username, do: element 
+    players = for element <- game.players, element.username != player.username, do: element
     new_list_player = [player] ++ players
-    IO.inspect new_list_player
     %Game{game | players: new_list_player}
   end
 

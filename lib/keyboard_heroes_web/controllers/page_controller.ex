@@ -53,12 +53,9 @@ defmodule KeyboardHeroesWeb.PageController do
     {user_id, view_token} =
     case Phoenix.Token.verify(KeyboardHeroesWeb.Endpoint, username, token, max_age: 7200) do
       {:ok, user_id} ->
-        IO.puts "Validao"
         user_id = user_id
         {user_id, true}
       {:error, _} ->
-        IO.puts "El token expiro"
-        false
         {0, false}
     end
 
@@ -67,14 +64,10 @@ defmodule KeyboardHeroesWeb.PageController do
   end
 
   def restore_pass(conn, %{"id" => id, "new_password" => new_password} ) do
-    IO.puts "Entro aquí"
     response = PersonRepo.find_user_by_id(String.to_integer(id["id"]))
-    IO.inspect response
     case response do
       {:ok, person} ->
         res = PersonRepo.update_person person, new_password
-        IO.inspect "Esta es la respuesta"
-        IO.inspect res
       _ ->
         "No found"
     end
