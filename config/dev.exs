@@ -54,8 +54,6 @@ config :logger, :console, format: "[$level] $message\n"
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
-
-
 # Configure your database
 config :keyboard_heroes, KeyboardHeroes.Repo,
   adapter: Ecto.Adapters.Postgres,
@@ -64,3 +62,7 @@ config :keyboard_heroes, KeyboardHeroes.Repo,
   database: "keyboard_heroes_dev",
   hostname: "localhost",
   pool_size: 10
+
+#Configure adapter email for development
+config :keyboard_heroes, KeyboardHeroes.Mail.Mailer,
+  adapter: Bamboo.LocalAdapter
