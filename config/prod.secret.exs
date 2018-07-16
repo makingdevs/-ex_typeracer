@@ -11,6 +11,14 @@ use Mix.Config
 config :keyboard_heroes, KeyboardHeroesWeb.Endpoint,
   secret_key_base: "8dM1B4Cv1fo/cxKkpd6PzxlHIsQxyet0GjJxiNwCm68mhH8V24HdK5SWRZ5uJbzz"
 
+#Configure adapter email
+config :keyboard_heroes, KeyboardHeroes.Mail.Mailer,
+  adapter: Bamboo.SMTPAdapter,
+  server: System.get_env("MAIL_SERVER"),
+  port: System.get_env("MAIL_PORT") || 587,
+  username: System.get_env("MAIL_USERNAME"),
+  password: System.get_env("MAIL_PASSWORD")
+
 # Configure your database
 config :keyboard_heroes, KeyboardHeroes.Repo,
   adapter: Ecto.Adapters.Postgres,
