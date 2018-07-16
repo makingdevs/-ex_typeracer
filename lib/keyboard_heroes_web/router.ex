@@ -62,8 +62,8 @@ defmodule KeyboardHeroesWeb.Router do
     post "/logout", LoginController, :logout
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", KeyboardHeroesWeb do
-  #   pipe_through :api
-  # end
+	if Mix.env == :dev do
+		forward "/sent_emails", Bamboo.SentEmailViewerPlug
+	end
+
 end
