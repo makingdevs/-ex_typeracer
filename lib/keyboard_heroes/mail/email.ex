@@ -1,6 +1,6 @@
 defmodule KeyboardHeroes.Mail.Email do
-  import Bamboo.Email
-  import Bamboo.Phoenix
+  use Bamboo.Phoenix, view: KeyboardHeroesWeb.EmailView
+  
 
   def send_email_register(person) do
     base_email()
@@ -23,6 +23,15 @@ defmodule KeyboardHeroes.Mail.Email do
 		|> put_header("Reply-To", "info@makingdevs.com")
     |> put_html_layout({KeyboardHeroes.LayoutView, "email.html"})
     |> put_text_layout({KeyboardHeroes.LayoutView, "email.text"})
+  end
+
+  def send_sample_email(email) do
+    base_email()
+    |> to(email)
+    |> subject("Welcome hero!!!")
+    |> put_header("Reply-To", "someone@example.com")
+    |> html_body("<strong>Welcome  !!!</strong><br/>Thanks for join us! http://keyboardheroes.io")
+    |> render("email.html")
   end
 
 end
