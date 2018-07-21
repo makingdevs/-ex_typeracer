@@ -21,7 +21,7 @@ config :keyboard_heroes, KeyboardHeroes.Repo,
 
   config :keyboard_heroes, KeyboardHeroes.Mail.Mailer,
   adapter: Bamboo.SMTPAdapter,
-  server: "email-smtp.us-east-1.amazonaws.com",
+  server:  System.get_env("SMTP_HOST"),
   port: 587,
   username: System.get_env("SMTP_USERNAME"),
   password: System.get_env("SMTP_PASSWORD"),
