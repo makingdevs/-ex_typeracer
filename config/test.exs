@@ -18,3 +18,13 @@ config :keyboard_heroes, KeyboardHeroes.Repo,
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox,
   template: "template0"
+
+  config :keyboard_heroes, KeyboardHeroes.Mail.Mailer,
+  adapter: Bamboo.SMTPAdapter,
+  server: "email-smtp.us-east-1.amazonaws.com",
+  port: 587,
+  username: System.get_env("SMTP_USERNAME"),
+  password: System.get_env("SMTP_PASSWORD"),
+  tls: :if_available, # can be `:always` or `:never`
+  ssl: false, # can be `true`
+  retries: 1
