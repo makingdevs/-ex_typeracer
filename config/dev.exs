@@ -65,4 +65,5 @@ config :keyboard_heroes, KeyboardHeroes.Repo,
 
 #Configure adapter email for development
 config :keyboard_heroes, KeyboardHeroes.Mail.Mailer,
-  adapter: Bamboo.LocalAdapter
+  adapter: Bamboo.LocalAdapter,
+  open_email_in_browser_url: "http://localhost:4000/sent_emails"

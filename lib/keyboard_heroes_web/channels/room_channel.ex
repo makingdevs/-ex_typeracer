@@ -92,7 +92,9 @@ defmodule KeyboardHeroesWeb.RoomChannel do
   def handle_in("recovery_pass", email, socket) do
     existed = case PersonRepo.find_user_by_email email do
       nil -> false
-      _ -> true
+      person -> 
+        PersonRepo.send_email_token_recovery person
+        true
     end
     {:reply, {:ok, %{existed: existed}}, socket}
   end
