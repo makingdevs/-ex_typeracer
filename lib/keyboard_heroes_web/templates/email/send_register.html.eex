@@ -1,3 +1,20 @@
-<div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="col-lg-3">
+      Test Bootstrap 1
+    </div>
+    <div class="col-lg-3">
+      Test Bootstrap col
+      
+
+    </div>
+
+  </div>
   Here is your tamplate
+</div>
+<div class="row">
+  col 1
+</div>
+<div class="row">
+  col 2
 </div>
