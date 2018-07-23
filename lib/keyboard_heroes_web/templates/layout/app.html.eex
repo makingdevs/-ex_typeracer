@@ -48,5 +48,14 @@
     <%= render @view_module, @view_template, assigns %>
 
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107190040-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-107190040-2');
+  </script>
   </body>
 </html>
