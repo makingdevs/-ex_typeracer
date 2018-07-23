@@ -21,8 +21,8 @@ defmodule KeyboardHeroes.Mail.Email do
     new_email()
     |> from("info@makingdevs.com")
 		|> put_header("Reply-To", "info@makingdevs.com")
-    |> put_html_layout({KeyboardHeroes.LayoutView, "email.html"})
-    |> put_text_layout({KeyboardHeroes.LayoutView, "email.text"})
+    |> put_html_layout({KeyboardHeroesWeb.LayoutView, "email.html"})
+    |> put_text_layout({KeyboardHeroesWeb.LayoutView, "email.text"})
   end
 
   def send_sample_email(email) do
@@ -31,7 +31,7 @@ defmodule KeyboardHeroes.Mail.Email do
     |> subject("Welcome hero!!!")
     |> put_header("Reply-To", "someone@example.com")
     |> html_body("<strong>Welcome  !!!</strong><br/>Thanks for join us! http://keyboardheroes.io")
-    |> render("email.html")
+    |> render("send_register.html")
   end
 
 end
