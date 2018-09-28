@@ -42,7 +42,7 @@ pipeline {
         ENVIRONMENT = "${env.BRANCH_NAME == 'master' ? 'development' : env.BRANCH_NAME}"
       }
       steps{
-        sh "ssh ec2-user@ci.makingdevs.com sh /home/ec2-user/deployApp.sh ${env.VERSION} ${env.ENVIRONMENT} keyboard_heroes"
+        sh "ssh ec2-user@ci.makingdevs.com sh /home/ec2-user/deployApp.sh ${env.VERSION} ${env.ENVIRONMENT} keyboard-heroes"
       }
     }
 
