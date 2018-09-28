@@ -23,8 +23,8 @@ pipeline {
       steps{
         script {
           docker.withTool('Docker') {
-            docker.withRegistry('https://166775549767.dkr.ecr.us-east-1.amazonaws.com/keyboard_heroes', 'ecr:us-east-1:e8b72a0b-f4f3-421e-b64b-7ec1a50c08a4') {
-              def customImage = docker.build("keyboard_heroes:${env.VERSION}", '--build-arg ENV=prod .')
+            docker.withRegistry('https://166775549767.dkr.ecr.us-east-1.amazonaws.com/keyboard-heroes', 'ecr:us-east-1:e8b72a0b-f4f3-421e-b64b-7ec1a50c08a4') {
+              def customImage = docker.build("keyboard-heroes:${env.VERSION}", '--build-arg ENV=prod .')
               customImage.push()
             }
           }
