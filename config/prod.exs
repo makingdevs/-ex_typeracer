@@ -17,7 +17,7 @@ config :keyboard_heroes, KeyboardHeroesWeb.Endpoint,
   load_from_system_env: true,
   url: [host: {:system, "HOST"}, port: {:system, "PORT"}],
   cache_static_manifest: "priv/static/cache_manifest.json",
-  base_url: "http://35.196.160.161:4000/"
+  base_url: "http://localhost:4000/"
 
 # Do not print debug messages in production
 config :logger, level: :info
